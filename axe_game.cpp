@@ -12,8 +12,8 @@ int main(){
     int w = 900;
 
     InitWindow(h, w, "POPUP");
-    
-    while (true)
+
+    while (WindowShouldClose() == false)
     {
         BeginDrawing();
         ClearBackground(RED);
