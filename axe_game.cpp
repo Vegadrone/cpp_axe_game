@@ -1,5 +1,12 @@
 #include "raylib.h"
 
+int h = 750;
+
+
 int main(){
-    InitWindow(300, 300, "POPUP");
+    
+    int w; 
+    w = 900;
+    
+    InitWindow(h, w, "POPUP");
 }
