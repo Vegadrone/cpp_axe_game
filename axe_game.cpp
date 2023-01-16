@@ -17,6 +17,7 @@ int main(){
     //Circle coordinates
     int circle_x {750/2};
     int circle_y {900/2};
+    int circle_radius {50};
 
     SetTargetFPS(60);
     while (WindowShouldClose() == false)
@@ -26,24 +27,24 @@ int main(){
 
         //Game logic begins
 
-        DrawCircle(circle_x, circle_y, 100, BLUE);
+        DrawCircle(circle_x, circle_y, circle_radius, BLUE);
 
-        if (IsKeyDown(KEY_D))
+        if (IsKeyDown(KEY_D) && circle_x < (750 - circle_radius))
         {
             circle_x = circle_x + 10;
         }
 
-        if (IsKeyDown(KEY_A))
+        if (IsKeyDown(KEY_A) && circle_x > (0 + circle_radius))
         {
             circle_x = circle_x - 10;
         }
 
-        if (IsKeyDown(KEY_W))
+        if (IsKeyDown(KEY_W) && circle_y > (0 + circle_radius))
         {
             circle_y = circle_y - 10;
         }
 
-        if (IsKeyDown(KEY_S))
+        if (IsKeyDown(KEY_S) && circle_y < (900 - circle_radius) )
         {
             circle_y = circle_y + 10;
         }
