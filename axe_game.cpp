@@ -1,19 +1,20 @@
 #include "raylib.h"
 
-int h = 750;
 
 
 int main(){
     
-    int w; 
-    w = 900;
+    /*
+        You need to put the loop AFTER InitWindow to see the popup window
+    */
 
-    bool equal {4 == 9}; //false
-    bool notEqual{4 != 9}; //true
-    bool less{4 < 9}; //true
-    bool great{4 > 9};//false
-    bool lessEqual{4 <= 9};//true
-    bool greatEqual{4 >= 9};//false
+    int h = 750;
+    int w = 900;
 
     InitWindow(h, w, "POPUP");
+    
+    while (true)
+    {
+        /* code */
+    }
 }
