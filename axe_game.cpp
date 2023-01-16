@@ -8,12 +8,12 @@ int main(){
     int w; 
     w = 900;
 
-    float root_beer = 1.99;
-
-    double cheese_burger{5.99};
-
-    bool shouldHaveLunch{};
-
+    bool equal {4 == 9}; //false
+    bool notEqual{4 != 9}; //true
+    bool less{4 < 9}; //true
+    bool great{4 > 9};//false
+    bool lessEqual{4 <= 9};//true
+    bool greatEqual{4 >= 9};//false
 
     InitWindow(h, w, "POPUP");
 }
