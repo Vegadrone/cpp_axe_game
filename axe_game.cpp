@@ -17,6 +17,7 @@ int main(){
     {
         BeginDrawing();
         ClearBackground(RED);
+        DrawCircle((750/2), (900/2), 100, BLUE);
         EndDrawing();
     }
 }
