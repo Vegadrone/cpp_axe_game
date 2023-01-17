@@ -22,6 +22,7 @@ int main(){
     //Axe Coordinates
     int axe_x {400};
     int axe_y {0};
+    int axe_direction {10};
 
     SetTargetFPS(60);
     while (WindowShouldClose() == false)
@@ -35,8 +36,15 @@ int main(){
         DrawRectangle(axe_x, axe_y, 150, 150, WHITE);
 
         //axe movement
-        axe_y += 10;
+        axe_y += axe_direction;
 
+        if (axe_y > 300 || axe_y < 0)
+        {
+            axe_direction = -axe_direction;
+        }
+        
+
+        //Circle movement
         if (IsKeyDown(KEY_D) && circle_x < (w - circle_radius))
         {
             circle_x += 10;
