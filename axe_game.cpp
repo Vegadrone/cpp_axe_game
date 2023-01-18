@@ -40,6 +40,19 @@ int main(){
         (r_axe_x >= l_circle_x) &&
         (l_axe_x <= r_circle_x);
 
+    //Counter
+    int score_counter {};
+
+    /*
+        Per aumentare il punteggio il cerchio deve passare dall'altra parte dell'area di collisione dell'axe
+        questo vuol dire che per ogni frame dovrei prendere la posizione del cerchio da dove parte e quella dove finisce
+        quest ultima va confrontata con l'area di collisione.
+    */
+
+    //Player avoid axe
+    bool is_axe_avoided = 
+        (l_circle_x > r_axe_x);
+
     SetTargetFPS(60);
     while (WindowShouldClose() == false)
     {
@@ -48,7 +61,8 @@ int main(){
 
         if (collision_with_axe)
         {
-            DrawText("GAME OVER!!!", 235, 200, 50, YELLOW);
+            DrawText("GAME OVER!!!\n", 235, 200, 50, YELLOW);
+            DrawText(TextFormat("Your Score is: %i", score_counter), 280, 250, 25, YELLOW);
         }
         
         else
@@ -75,8 +89,13 @@ int main(){
                 (r_axe_x >= l_circle_x) &&
                 (l_axe_x <= r_circle_x);
 
+            //update if axe is avoided
+            is_axe_avoided =
+                (l_circle_x > r_axe_x);
+
             DrawCircle(circle_x, circle_y, circle_radius, BLUE);
             DrawRectangle(axe_x, axe_y, axe_length, axe_length, WHITE);
+            DrawText(TextFormat("Player score: %i", score_counter), 10, 10, 25, YELLOW);
 
             //axe movement
             axe_y += axe_direction;
@@ -103,10 +122,17 @@ int main(){
                 circle_y -= 10;
             }
 
-            if (IsKeyDown(KEY_S) && circle_y < (h - circle_radius) )
+            if (IsKeyDown(KEY_S) && circle_y < (h - circle_radius))
             {
                 circle_y += 10;
             }
+
+            //Update score
+            if (is_axe_avoided)
+            {
+                score_counter += 1;
+            }
+            
             //Game logic ends
         }
             EndDrawing();
