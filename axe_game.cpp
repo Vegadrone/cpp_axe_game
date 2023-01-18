@@ -53,6 +53,9 @@ int main(){
     bool is_axe_avoided = 
         (l_circle_x > r_axe_x);
 
+    bool circle_is_passed = 
+        (l_circle_x > r_axe_x);
+
     SetTargetFPS(60);
     while (WindowShouldClose() == false)
     {
@@ -130,11 +133,11 @@ int main(){
             //Update score
             if (is_axe_avoided)
             {
-                score_counter += 1;
+                score_counter ++;
             }
-            
             //Game logic ends
         }
+            
             EndDrawing();
     }
 }
